@@ -16,7 +16,8 @@ var project_json = {
       "as_a": "Admin",
       "i_can": "add users",
       "so_that": "access is contolled",
-      "story_points": 3
+      "acceptance_criteria": "- it works",
+      "story_points": 8
     },
     {
       "id": 2,
@@ -24,6 +25,7 @@ var project_json = {
       "as_a": "Admin",
       "i_can": "delete users",
       "so_that": "access is contolled",
+      "acceptance_criteria": "- it works",
       "story_points": 3
     },
     {
@@ -32,6 +34,7 @@ var project_json = {
       "as_a": "Admin",
       "i_can": "inactivate users",
       "so_that": "access is contolled",
+      "acceptance_criteria": "- it works",
       "story_points": 5
     },
     {
@@ -40,6 +43,7 @@ var project_json = {
       "as_a": "Admin",
       "i_can": "view users",
       "so_that": "access is contolled",
+      "acceptance_criteria": "- it works",
       "story_points": 1
     }
   ]
