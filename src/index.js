@@ -14,7 +14,17 @@ var project_json = {
   "metadata": {
     "project_name": "Test Project",
     "assignee": "Sushil",
-    "project_manager": "John"
+    "project_manager": "John",
+    "features": [
+    	{
+    		"id": 1,
+    		"name": "Login"
+    	},
+    	{
+    		"id": 2,
+    		"name": "User Grid"
+    	}
+    ]
   },
   "user_stories": [
     {
