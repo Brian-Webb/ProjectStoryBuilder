@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {Row, Input, Button, Tabs, Tab} from 'react-materialize'
+import ProjectMetadata from './ProjectMetadata';
 import UserStoryList from './UserStoryList';
 
 class ProjectEditor extends Component {
@@ -20,7 +21,7 @@ class ProjectEditor extends Component {
       <div className="ProjectEditor">
         <Tabs className='tab-demo z-depth-1'>
             <Tab title="Project Information">
-              <ProjectMetaData metadata={this.state.metadata} />
+              <ProjectMetadata metadata={this.state.metadata} />
             </Tab>
             <Tab title="User Stories" active>
               <UserStoryList user_stories={this.state.user_stories} handleStoryFieldChange={this.handleStoryFieldChange} />
