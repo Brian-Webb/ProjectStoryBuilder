@@ -83,18 +83,6 @@ class ProjectEditor extends Component {
   }
 }
 
-class ProjectMetaData extends Component {
-  render() {
-    return (
-      <Row className="ProjectMetaData">
-        <Input type="text" s={4} label="Project Name" defaultValue={this.props.metadata.project_name} />
-        <Input type="text" s={4} label="Assignee" defaultValue={this.props.metadata.asignee} />
-        <Input type="text" s={4} label="Project Manager" defaultValue={this.props.metadata.project_manager} />
-      </Row>
-    )
-  }
-}
-
 class ActionBar extends Component {
   constructor(props) {
     super(props);
