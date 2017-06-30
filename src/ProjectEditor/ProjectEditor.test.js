@@ -1,15 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import ProjectStoryBuilder from './ProjectStoryBuilder';
-import registerServiceWorker from './registerServiceWorker';
-import injectTapEventPlugin from 'react-tap-event-plugin';
+import ProjectEditor from './ProjectEditor';
 
-// Needed for onTouchTap
-// http://stackoverflow.com/a/34015469/988941
-injectTapEventPlugin();
-
-
-// TODO: Replace hard coded project JSON with some other method of gathering them (mongodb?)
 var project_json = {
   "id": 1,
   "metadata": {
@@ -53,5 +45,7 @@ var project_json = {
   ]
 };
 
-ReactDOM.render(<ProjectStoryBuilder project={project_json} />, document.getElementById('root'));
-registerServiceWorker();
+it('renders without crashing', () => {
+  const div = document.createElement('div');
+  ReactDOM.render(<ProjectEditor project={project_json} />, div);
+});
