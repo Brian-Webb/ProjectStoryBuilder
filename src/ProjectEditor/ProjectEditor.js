@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Row, Input, Button, Tabs, Tab} from 'react-materialize'
+import {Button, Tabs, Tab} from 'react-materialize'
 import ProjectMetadata from './ProjectMetadata';
 import UserStoryList from './UserStoryList';
 
