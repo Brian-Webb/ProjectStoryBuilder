@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ProjectEditor from './ProjectEditor/ProjectEditor';
+import ProjectEditor 		from './ProjectEditor/ProjectEditor';
 
 class ProjectStoryBuilder extends Component {
   render() {

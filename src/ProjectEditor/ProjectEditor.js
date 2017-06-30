@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import {Button, Tabs, Tab} from 'react-materialize'
-import ProjectMetadata from './ProjectMetadata';
-import UserStoryList from './UserStoryList';
+import {Button, Tabs, Tab}  from 'react-materialize'
+import ProjectMetadata      from './ProjectMetadata';
+import UserStoryList        from './UserStoryList';
 
 class ProjectEditor extends Component {
   constructor(props) {
