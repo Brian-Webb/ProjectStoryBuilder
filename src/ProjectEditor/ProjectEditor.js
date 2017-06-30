@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import {Button, Tabs, Tab}  from 'react-materialize'
+import {Tabs, Tab}          from 'react-materialize'
 import ProjectMetadata      from './ProjectMetadata';
 import UserStoryList        from './UserStoryList';
+import ActionBar            from './ActionBar';
 
 class ProjectEditor extends Component {
   constructor(props) {
@@ -89,31 +90,6 @@ class ProjectEditor extends Component {
       "acceptance_criteria": "",
       "story_points": 1
     }
-  }
-}
-
-class ActionBar extends Component {
-  constructor(props) {
-    super(props);
-    this.handleAddStoryClick = this.handleAddStoryClick.bind(this);
-    this.handleOutputJsonClick = this.handleOutputJsonClick.bind(this);
-  }
-
-  handleAddStoryClick() {
-    this.props.handleAddStoryClick();
-  }
-
-  handleOutputJsonClick() {
-    this.props.handleOutputJsonClick();
-  }
-
-  render() {
-    return (
-      <div className="ActionBar">
-        <Button className="light" onClick={this.handleAddStoryClick}>Add Story</Button>
-        <Button className="light" onClick={this.handleOutputJsonClick}>Output JSON</Button>
-      </div>
-    );
   }
 }
 
