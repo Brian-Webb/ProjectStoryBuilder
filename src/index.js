@@ -8,7 +8,6 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 // http://stackoverflow.com/a/34015469/988941
 injectTapEventPlugin();
 
-
 // TODO: Replace hard coded project JSON with some other method of gathering them (mongodb?)
 var project_json = {
   "id": 1,
@@ -25,7 +24,7 @@ var project_json = {
       "i_can": "add users",
       "so_that": "access is contolled",
       "acceptance_criteria": "- it works",
-      "story_points": 3
+      "story_points": 8
     },
     {
       "id": 2,

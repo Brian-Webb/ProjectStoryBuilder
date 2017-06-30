@@ -14,6 +14,7 @@ class ProjectEditor extends Component {
     this.handleAddStoryClick = this.handleAddStoryClick.bind(this);
     this.handleOutputJsonClick = this.handleOutputJsonClick.bind(this);
     this.handleStoryFieldChange = this.handleStoryFieldChange.bind(this);
+    this.handleMetadataFieldChange = this.handleMetadataFieldChange.bind(this);
   }
 
   render() {
@@ -21,7 +22,7 @@ class ProjectEditor extends Component {
       <div className="ProjectEditor">
         <Tabs className='tab-demo z-depth-1'>
             <Tab title="Project Information">
-              <ProjectMetadata metadata={this.state.metadata} />
+              <ProjectMetadata metadata={this.state.metadata} handleMetadataFieldChange={this.handleMetadataFieldChange} />
             </Tab>
             <Tab title="User Stories" active>
               <UserStoryList user_stories={this.state.user_stories} handleStoryFieldChange={this.handleStoryFieldChange} />
@@ -46,6 +47,14 @@ class ProjectEditor extends Component {
     var project_object = this.getCurrentProjectObject();
 
     console.log( JSON.stringify(project_object) );
+  }
+
+  handleMetadataFieldChange(field_name, value) {
+    var metadata = this.state.metadata;
+
+    metadata[field_name] = value;
+
+    this.setState({"metadata": metadata});
   }
 
   handleStoryFieldChange(story_index, field_name, value) {
