@@ -6,12 +6,6 @@ class FeatureList extends Component {
     super(props);
     this.handleMetadataFeatureChange = this.handleMetadataFeatureChange.bind(this);
   }
-
-  handleMetadataFeatureChange(key, field_name, value) {
-    var story_index = key - 1;
-
-    this.props.handleMetadataFeatureChange(story_index, field_name, value);
-  }
   
   render() {
     var features = [];
@@ -27,16 +21,19 @@ class FeatureList extends Component {
       </div>
     )
   }
+
+  // input handlers
+    handleMetadataFeatureChange(key, field_name, value) {
+      var story_index = key - 1;
+
+      this.props.handleMetadataFeatureChange(story_index, field_name, value);
+    }
 }
 
 class FeatureRow extends Component {
   constructor(props) {
     super(props);
     this.handleMetadataFeatureChange = this.handleMetadataFeatureChange.bind(this);
-  }
-
-  handleMetadataFeatureChange(e) {
-    this.props.handleMetadataFeatureChange(this.props.feature.id, e.target.name, e.target.value);
   }
 
   render() {
@@ -50,6 +47,11 @@ class FeatureRow extends Component {
       </Row>
     )
   }
+
+  // input handlers
+    handleMetadataFeatureChange(e) {
+      this.props.handleMetadataFeatureChange(this.props.feature.id, e.target.name, e.target.value);
+    }
 }
 
 export default FeatureList;

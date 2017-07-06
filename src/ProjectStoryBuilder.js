@@ -14,41 +14,6 @@ class ProjectStoryBuilder extends Component {
     this.handleNewStoryClick = this.handleNewStoryClick.bind(this);
   }
 
-  handleProjectClick(project_id) {
-    var projects = this.props.projects;
-
-    for(var i=0; i < projects.length; i++) {
-      if(projects[i].id === project_id) {
-        this.setState({"selected_project": projects[i]});
-        return true;
-      }
-    }    
-  }
-
-  handleBackToSelectorClick(project_id) {
-    this.setState({"selected_project": null});
-  }
-
-  handleNewStoryClick(project_id) {
-    // TODO: find new ID from DB when connected
-    let new_project =  {
-          "id": Math.floor( (Math.random()*1000) + 1 ),
-          "metadata": {
-            "project_name": "New Project",
-            "assignee": "",
-            "project_manager": "",
-            "features": []
-          },
-          "user_stories": []
-        };
-
-    console.log(new_project);
-
-    this.props.projects.push( new_project );
-
-    this.setState({"selected_project": new_project});
-  }
-
   render() {
     let output = null;
 
@@ -70,6 +35,42 @@ class ProjectStoryBuilder extends Component {
       </div>
     );
   }
+
+  // input handlers
+    handleProjectClick(project_id) {
+      var projects = this.props.projects;
+
+      for(var i=0; i < projects.length; i++) {
+        if(projects[i].id === project_id) {
+          this.setState({"selected_project": projects[i]});
+          return true;
+        }
+      }    
+    }
+
+    handleBackToSelectorClick(project_id) {
+      this.setState({"selected_project": null});
+    }
+
+    handleNewStoryClick(project_id) {
+      // TODO: find new ID from DB when connected
+      let new_project =  {
+            "id": Math.floor( (Math.random()*1000) + 1 ),
+            "metadata": {
+              "project_name": "New Project",
+              "assignee": "",
+              "project_manager": "",
+              "features": []
+            },
+            "user_stories": []
+          };
+
+      console.log(new_project);
+
+      this.props.projects.push( new_project );
+
+      this.setState({"selected_project": new_project});
+    }
 }
 
 export default ProjectStoryBuilder;

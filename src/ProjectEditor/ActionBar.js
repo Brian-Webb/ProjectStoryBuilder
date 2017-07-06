@@ -11,21 +11,6 @@ class ActionBar extends Component {
     this.handleBackToSelectorClick = this.handleBackToSelectorClick.bind(this);
   }
 
-  handleAddStoryClick() {
-    this.props.handleAddStoryClick();
-  }
-
-  handleAddFeatureClick() {
-    this.props.handleAddFeatureClick();
-  }
-
-  handleOutputJsonClick() {
-    this.props.handleOutputJsonClick();
-  }
-  handleBackToSelectorClick() {
-    this.props.handleBackToSelectorClick();
-  }
-
   render() {
   	var add_button = <Button className="light" onClick={this.handleAddStoryClick}>Add Story</Button>;
 
@@ -41,6 +26,22 @@ class ActionBar extends Component {
       </div>
     );
   }
+
+  // input handlers
+    handleAddStoryClick() {
+      this.props.handleAddStoryClick();
+    }
+
+    handleAddFeatureClick() {
+      this.props.handleAddFeatureClick();
+    }
+
+    handleOutputJsonClick() {
+      this.props.handleOutputJsonClick();
+    }
+    handleBackToSelectorClick() {
+      this.props.handleBackToSelectorClick();
+    }
 }
 
 export default ActionBar;

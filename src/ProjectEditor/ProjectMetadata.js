@@ -9,14 +9,6 @@ class ProjectMetadata extends Component {
     this.handleMetadataFeatureChange = this.handleMetadataFeatureChange.bind(this);
   }
 
-  handleMetadataFieldChange(e) {
-    this.props.handleMetadataFieldChange(e.target.name, e.target.value);
-  }
-
-  handleMetadataFeatureChange(feature_index, field_name, value) {
-  	this.props.handleMetadataFeatureChange(feature_index, field_name, value);
-  }
-
   render() {
     let project_name    = false;
     let assignee        = false;
@@ -46,6 +38,15 @@ class ProjectMetadata extends Component {
 	    </div>
     )
   }
+
+  // input handlers
+    handleMetadataFieldChange(e) {
+      this.props.handleMetadataFieldChange(e.target.name, e.target.value);
+    }
+
+    handleMetadataFeatureChange(feature_index, field_name, value) {
+      this.props.handleMetadataFeatureChange(feature_index, field_name, value);
+    }
 }
 
 export default ProjectMetadata;

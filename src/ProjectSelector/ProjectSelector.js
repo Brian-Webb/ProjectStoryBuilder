@@ -7,14 +7,6 @@ class ProjectSelector extends Component {
     this.handleNewStoryClick = this.handleNewStoryClick.bind(this);
   }
 
-  handleProjectClick(project_id) {
-  	this.props.handleProjectClick(project_id);
-  }
-
-  handleNewStoryClick() {
-  	this.props.handleNewStoryClick();
-  }
-
   render() {
   	var projects = [];
 
@@ -30,16 +22,21 @@ class ProjectSelector extends Component {
       </div>
     )
   }
+
+  // input handlers
+	  handleProjectClick(project_id) {
+	  	this.props.handleProjectClick(project_id);
+	  }
+
+	  handleNewStoryClick() {
+	  	this.props.handleNewStoryClick();
+	  }
 }
 
 class ProjectRow extends Component {
   constructor(props) {
     super(props);
     this.handleProjectClick = this.handleProjectClick.bind(this);
-  }
-
-  handleProjectClick(e) {
-  	this.props.handleProjectClick(this.props.project_id);
   }
   
   render() {
@@ -49,6 +46,11 @@ class ProjectRow extends Component {
   		</div>
   	)
   }
+
+  // input handlers
+	  handleProjectClick(e) {
+	  	this.props.handleProjectClick(this.props.project_id);
+	  }
 }
 
 export default ProjectSelector;

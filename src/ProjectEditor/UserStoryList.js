@@ -6,40 +6,6 @@ class UserStoryList extends Component {
     super(props);
     this.handleStoryFieldChange = this.handleStoryFieldChange.bind(this);
   }
-
-  handleStoryFieldChange(key, field_name, value) {
-    var story_index = key - 1;
-
-    this.props.handleStoryFieldChange(story_index, field_name, value);
-  }
-
-  generateFeatures() {
-  	let features = (
-	  	<option disabled>Add Features on Metadata page</option>
-	  );
-
-	  if( this.props.features.length ) {
-	  	features = [];
-
-	  	this.props.features.forEach( function(feature) {
-	  	  features.push( <option value={feature.id} key={feature.id}>{feature.name}</option> );
-	  	}, this);
-	  }
-
-	  return features;
-  }
-
-  generateStories() {
-	  let features = this.generateFeatures(); 
-
-  	let stories = [];
-
-  	this.props.user_stories.forEach( function(story) {
-      stories.push( <UserStoryRow story={story} key={story.id} handleStoryFieldChange={this.handleStoryFieldChange} features={features} /> );
-    }, this);
-
-    return stories;
-  }
   
   render() {
     let stories = this.generateStories();
@@ -50,16 +16,48 @@ class UserStoryList extends Component {
       </div>
     )
   }
+
+  // input handlers
+	  handleStoryFieldChange(key, field_name, value) {
+	    var story_index = key - 1;
+
+	    this.props.handleStoryFieldChange(story_index, field_name, value);
+	  }
+
+  // generators
+	  generateFeatures() {
+	  	let features = (
+		  	<option disabled>Add Features on Metadata page</option>
+		  );
+
+		  if( this.props.features.length ) {
+		  	features = [];
+
+		  	this.props.features.forEach( function(feature) {
+		  	  features.push( <option value={feature.id} key={feature.id}>{feature.name}</option> );
+		  	}, this);
+		  }
+
+		  return features;
+	  }
+
+	  generateStories() {
+		  let features = this.generateFeatures(); 
+
+	  	let stories = [];
+
+	  	this.props.user_stories.forEach( function(story) {
+	      stories.push( <UserStoryRow story={story} key={story.id} handleStoryFieldChange={this.handleStoryFieldChange} features={features} /> );
+	    }, this);
+
+	    return stories;
+	  }
 }
 
 class UserStoryRow extends Component {
   constructor(props) {
     super(props);
     this.handleStoryFieldChange = this.handleStoryFieldChange.bind(this);
-  }
-
-  handleStoryFieldChange(e) {
-    this.props.handleStoryFieldChange(this.props.story.id, e.target.name, e.target.value);
   }
 
   render() {
@@ -96,6 +94,11 @@ class UserStoryRow extends Component {
       </Row>
     )
   }
+
+  // input handlers
+	  handleStoryFieldChange(e) {
+	    this.props.handleStoryFieldChange(this.props.story.id, e.target.name, e.target.value);
+	  }
 }
 
 export default UserStoryList;
