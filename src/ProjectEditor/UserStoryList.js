@@ -12,13 +12,37 @@ class UserStoryList extends Component {
 
     this.props.handleStoryFieldChange(story_index, field_name, value);
   }
+
+  generateFeatures() {
+  	let features = (
+	  	<option disabled>Add Features on Metadata page</option>
+	  );
+
+	  if( this.props.features.length ) {
+	  	features = [];
+
+	  	this.props.features.forEach( function(feature) {
+	  	  features.push( <option value={feature.id} key={feature.id}>{feature.name}</option> );
+	  	}, this);
+	  }
+
+	  return features;
+  }
+
+  generateStories() {
+	  let features = this.generateFeatures(); 
+
+  	let stories = [];
+
+  	this.props.user_stories.forEach( function(story) {
+      stories.push( <UserStoryRow story={story} key={story.id} handleStoryFieldChange={this.handleStoryFieldChange} features={features} /> );
+    }, this);
+
+    return stories;
+  }
   
   render() {
-    var stories = [];
-    
-    this.props.user_stories.forEach( function(story) {
-      stories.push( <UserStoryRow story={story} key={story.id} handleStoryFieldChange={this.handleStoryFieldChange} /> );
-    }, this);
+    let stories = this.generateStories();
 
     return (
       <div className="UserStoryList">
@@ -45,16 +69,19 @@ class UserStoryRow extends Component {
         i_can = this.props.story.i_can,
         so_that = this.props.story.so_that,
         acceptance_criteria = this.props.story.acceptance_criteria,
-        story_points = this.props.story.story_points;
+        story_points = this.props.story.story_points,
+        features = this.props.features;
 
     return (
       <Row className="UserStoryRow" data-issue-row={id}>
         <Input type="text"     s={1}  defaultValue={id}                  name="id"                  onChange={this.handleStoryFieldChange} label="Story #" />
-        <Input type="text"     s={1}  defaultValue={feature}             name="feature"             onChange={this.handleStoryFieldChange} label="Feature" />
+        <Input type="select"   s={2}  defaultValue={feature}             name="feature"             onChange={this.handleStoryFieldChange} label="Feature">
+        	{features}
+        </Input>
         <Input type="text"     s={1}  defaultValue={as_a}                name="as_a"                onChange={this.handleStoryFieldChange} label="As a(n)" />
         <Input type="textarea" s={3}  defaultValue={i_can}               name="i_can"               onChange={this.handleStoryFieldChange} label="I can" />
         <Input type="textarea" s={2}  defaultValue={so_that}             name="so_that"             onChange={this.handleStoryFieldChange} label="So That" />
-        <Input type="textarea" s={3}  defaultValue={acceptance_criteria} name="acceptance_criteria" onChange={this.handleStoryFieldChange} label="Acceptance Criteria" />
+        <Input type="textarea" s={2}  defaultValue={acceptance_criteria} name="acceptance_criteria" onChange={this.handleStoryFieldChange} label="Acceptance Criteria" />
         <Input type="select"   s={1}  defaultValue={story_points}        name="story_points"        onChange={this.handleStoryFieldChange} label="Story Points" >
           <option value="1">1</option>
           <option value="2">2</option>

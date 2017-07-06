@@ -29,7 +29,7 @@ var project1_json = {
   "user_stories": [
     {
       "id": 1,
-      "feature": "User Management",
+      "feature": 1,
       "as_a": "Admin",
       "i_can": "add users",
       "so_that": "access is contolled",
@@ -38,7 +38,7 @@ var project1_json = {
     },
     {
       "id": 2,
-      "feature": "User Management",
+      "feature": 1,
       "as_a": "Admin",
       "i_can": "delete users",
       "so_that": "access is contolled",
@@ -47,7 +47,7 @@ var project1_json = {
     },
     {
       "id": 3,
-      "feature": "User Management",
+      "feature": 2,
       "as_a": "Admin",
       "i_can": "inactivate users",
       "so_that": "access is contolled",
@@ -56,7 +56,7 @@ var project1_json = {
     },
     {
       "id": 4,
-      "feature": "User Management",
+      "feature": 2,
       "as_a": "Admin",
       "i_can": "view users",
       "so_that": "access is contolled",
@@ -86,7 +86,7 @@ var project2_json = {
   "user_stories": [
     {
       "id": 1,
-      "feature": "User Management",
+      "feature": 2,
       "as_a": "Admin",
       "i_can": "add users",
       "so_that": "access is contolled",
@@ -95,7 +95,7 @@ var project2_json = {
     },
     {
       "id": 2,
-      "feature": "User Management",
+      "feature": 2,
       "as_a": "Admin",
       "i_can": "delete users",
       "so_that": "access is contolled",
@@ -104,7 +104,7 @@ var project2_json = {
     },
     {
       "id": 3,
-      "feature": "User Management",
+      "feature": 1,
       "as_a": "Admin",
       "i_can": "inactivate users",
       "so_that": "access is contolled",
@@ -113,7 +113,7 @@ var project2_json = {
     },
     {
       "id": 4,
-      "feature": "User Management",
+      "feature": 1,
       "as_a": "Admin",
       "i_can": "view users",
       "so_that": "access is contolled",

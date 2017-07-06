@@ -48,7 +48,7 @@ class ProjectEditor extends Component {
               <ProjectMetadata metadata={metadata} handleMetadataFieldChange={this.handleMetadataFieldChange} handleMetadataFeatureChange={this.handleMetadataFeatureChange} />
             </Tab>
             <Tab title="User Stories">
-              <UserStoryList user_stories={user_stories} handleStoryFieldChange={this.handleStoryFieldChange} />
+              <UserStoryList user_stories={user_stories} features={metadata.features} handleStoryFieldChange={this.handleStoryFieldChange} />
             </Tab>
         </Tabs>
         <ActionBar handleAddStoryClick={this.handleAddStoryClick} handleAddFeatureClick={this.handleAddFeatureClick} handleOutputJsonClick={this.handleOutputJsonClick} current_tab={this.state.current_tab} handleBackToSelectorClick={this.handleBackToSelectorClick} />
@@ -130,8 +130,6 @@ class ProjectEditor extends Component {
         metadata.features = features;
 
         this.setState({"metadata": metadata});
-
-        console.log(this.state.metadata.features);
       }
 
   // output functions

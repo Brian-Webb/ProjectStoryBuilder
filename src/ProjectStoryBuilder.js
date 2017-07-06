@@ -18,7 +18,7 @@ class ProjectStoryBuilder extends Component {
     var projects = this.props.projects;
 
     for(var i=0; i < projects.length; i++) {
-      if(projects[i].id == project_id) {
+      if(projects[i].id === project_id) {
         this.setState({"selected_project": projects[i]});
         return true;
       }
