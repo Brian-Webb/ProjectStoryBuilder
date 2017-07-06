@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Row, Input} 		from 'react-materialize'
+import {Row, Input} 		    from 'react-materialize'
 
 class FeatureList extends Component {
   constructor(props) {

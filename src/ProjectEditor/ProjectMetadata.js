@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Row, Col, Input} 		    from 'react-materialize'
+import {Row, Col, Input} 		from 'react-materialize'
 import FeatureList          from './FeatureList';
 
 class ProjectMetadata extends Component {
