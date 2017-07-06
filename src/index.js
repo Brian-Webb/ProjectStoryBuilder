@@ -9,7 +9,7 @@ import injectTapEventPlugin  from 'react-tap-event-plugin';
 injectTapEventPlugin();
 
 // TODO: Replace hard coded project JSON with some other method of gathering them (mongodb?)
-var project_json = {
+var project1_json = {
   "id": 1,
   "metadata": {
     "project_name": "Test Project",
@@ -66,5 +66,64 @@ var project_json = {
   ]
 };
 
-ReactDOM.render(<ProjectStoryBuilder project={project_json} />, document.getElementById('root'));
+var project2_json = {
+  "id": 2,
+  "metadata": {
+    "project_name": "Test Project 2",
+    "assignee": "Pramod",
+    "project_manager": "John",
+    "features": [
+    	{
+    		"id": 1,
+    		"name": "Login"
+    	},
+    	{
+    		"id": 2,
+    		"name": "User Grid"
+    	}
+    ]
+  },
+  "user_stories": [
+    {
+      "id": 1,
+      "feature": "User Management",
+      "as_a": "Admin",
+      "i_can": "add users",
+      "so_that": "access is contolled",
+      "acceptance_criteria": "- it works",
+      "story_points": 8
+    },
+    {
+      "id": 2,
+      "feature": "User Management",
+      "as_a": "Admin",
+      "i_can": "delete users",
+      "so_that": "access is contolled",
+      "acceptance_criteria": "- it works",
+      "story_points": 3
+    },
+    {
+      "id": 3,
+      "feature": "User Management",
+      "as_a": "Admin",
+      "i_can": "inactivate users",
+      "so_that": "access is contolled",
+      "acceptance_criteria": "- it works",
+      "story_points": 5
+    },
+    {
+      "id": 4,
+      "feature": "User Management",
+      "as_a": "Admin",
+      "i_can": "view users",
+      "so_that": "access is contolled",
+      "acceptance_criteria": "- it works",
+      "story_points": 1
+    }
+  ]
+};
+
+var projects = [ project1_json, project2_json ];
+
+ReactDOM.render(<ProjectStoryBuilder projects={projects} />, document.getElementById('root'));
 registerServiceWorker();
