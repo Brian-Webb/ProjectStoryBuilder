@@ -22,6 +22,7 @@ class FeatureList extends Component {
 
     return (
       <div className="FeatureList">
+        <strong>Features</strong>
         {features}
       </div>
     )

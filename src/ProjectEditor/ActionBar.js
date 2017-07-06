@@ -8,6 +8,7 @@ class ActionBar extends Component {
     this.handleAddStoryClick = this.handleAddStoryClick.bind(this);
     this.handleAddFeatureClick = this.handleAddFeatureClick.bind(this);
     this.handleOutputJsonClick = this.handleOutputJsonClick.bind(this);
+    this.handleBackToSelectorClick = this.handleBackToSelectorClick.bind(this);
   }
 
   handleAddStoryClick() {
@@ -21,6 +22,9 @@ class ActionBar extends Component {
   handleOutputJsonClick() {
     this.props.handleOutputJsonClick();
   }
+  handleBackToSelectorClick() {
+    this.props.handleBackToSelectorClick();
+  }
 
   render() {
   	var add_button = <Button className="light" onClick={this.handleAddStoryClick}>Add Story</Button>;
@@ -33,6 +37,7 @@ class ActionBar extends Component {
       <div className="ActionBar">
         {add_button}
         <Button className="light" onClick={this.handleOutputJsonClick}>Output JSON</Button>
+        <Button className="light" onClick={this.handleBackToSelectorClick}>Back</Button>
       </div>
     );
   }

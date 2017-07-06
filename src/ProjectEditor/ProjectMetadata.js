@@ -18,17 +18,29 @@ class ProjectMetadata extends Component {
   }
 
   render() {
+    let project_name    = false;
+    let assignee        = false;
+    let project_manager = false;
+    let features        = [];
+
+    if(this.props.metadata) {
+      project_name    = this.props.metadata.project_name    ? this.props.metadata.project_name    : '';
+      assignee        = this.props.metadata.assignee        ? this.props.metadata.assignee        : '';
+      project_manager = this.props.metadata.project_manager ? this.props.metadata.project_manager : '';
+      features        = this.props.metadata.features        ? this.props.metadata.features        : '';
+    }
+
     return (
 	    <div className="ProjectMetadata">
 	      <Row>
-	        <Input type="text" s={4} defaultValue={this.props.metadata.project_name} 	  onChange={this.handleMetadataFieldChange} name="project_name" 	 label="Project Name" />
-	        <Input type="text" s={4} defaultValue={this.props.metadata.assignee} 		    onChange={this.handleMetadataFieldChange} name="asignee" 				 label="Assignee" />
-	        <Input type="text" s={4} defaultValue={this.props.metadata.project_manager} onChange={this.handleMetadataFieldChange} name="project_manager" label="Project Manager" />
+	        <Input type="text" s={4} defaultValue={project_name} 	  onChange={this.handleMetadataFieldChange} name="project_name" 	 label="Project Name" />
+	        <Input type="text" s={4} defaultValue={assignee} 		    onChange={this.handleMetadataFieldChange} name="asignee" 				 label="Assignee" />
+	        <Input type="text" s={4} defaultValue={project_manager} onChange={this.handleMetadataFieldChange} name="project_manager" label="Project Manager" />
 	      </Row>
 
 	      <Row>
 	      	<Col s={6}>
-	      		<FeatureList features={this.props.metadata.features} handleMetadataFeatureChange={this.handleMetadataFeatureChange} />
+	      		<FeatureList features={features} handleMetadataFeatureChange={this.handleMetadataFeatureChange} />
 	      	</Col>
 	      </Row>
 	    </div>

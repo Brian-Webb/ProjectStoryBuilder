@@ -8,7 +8,7 @@ class ProjectEditor extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      "current_tab": "user_stories",
+      "current_tab": "project_metadata",
       "metadata": this.props.project.metadata,
       "user_stories": this.props.project.user_stories,
     };
@@ -20,20 +20,38 @@ class ProjectEditor extends Component {
     this.handleMetadataFieldChange = this.handleMetadataFieldChange.bind(this);
     this.handleMetadataFeatureChange = this.handleMetadataFeatureChange.bind(this);
     this.handleTabChange = this.handleTabChange.bind(this);
+    this.handleBackToSelectorClick = this.handleBackToSelectorClick.bind(this);
   }
 
   render() {
+    let metadata = {
+      "project_name": "",
+      "assignee": "",
+      "project_manager": "",
+      "features": []
+    };
+
+    let user_stories = [];
+
+    if(this.state.metadata) {
+      metadata = this.state.metadata;
+    }
+
+    if(this.state.user_stories) {
+      user_stories = this.state.user_stories;
+    }
+
     return (
       <div className="ProjectEditor">
         <Tabs className='tab-demo z-depth-1' onChange={this.handleTabChange}>
-            <Tab title="Project Information" >
-              <ProjectMetadata metadata={this.state.metadata} handleMetadataFieldChange={this.handleMetadataFieldChange} handleMetadataFeatureChange={this.handleMetadataFeatureChange} />
+            <Tab title="Project Information" active>
+              <ProjectMetadata metadata={metadata} handleMetadataFieldChange={this.handleMetadataFieldChange} handleMetadataFeatureChange={this.handleMetadataFeatureChange} />
             </Tab>
-            <Tab title="User Stories" active>
-              <UserStoryList user_stories={this.state.user_stories} handleStoryFieldChange={this.handleStoryFieldChange} />
+            <Tab title="User Stories">
+              <UserStoryList user_stories={user_stories} handleStoryFieldChange={this.handleStoryFieldChange} />
             </Tab>
         </Tabs>
-        <ActionBar handleAddStoryClick={this.handleAddStoryClick} handleAddFeatureClick={this.handleAddFeatureClick} handleOutputJsonClick={this.handleOutputJsonClick} current_tab={this.state.current_tab} />
+        <ActionBar handleAddStoryClick={this.handleAddStoryClick} handleAddFeatureClick={this.handleAddFeatureClick} handleOutputJsonClick={this.handleOutputJsonClick} current_tab={this.state.current_tab} handleBackToSelectorClick={this.handleBackToSelectorClick} />
       </div>
     )
   }
@@ -140,6 +158,11 @@ class ProjectEditor extends Component {
       }
 
       this.setState({"current_tab": current_tab});
+    }
+
+  // back button functions
+    handleBackToSelectorClick() {
+      this.props.handleBackToSelectorClick();
     }
 }
 

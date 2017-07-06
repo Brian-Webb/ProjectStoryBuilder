@@ -6,10 +6,12 @@ class ProjectStoryBuilder extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      "selected_project": false
+      "selected_project": null
     };
 
     this.handleProjectClick = this.handleProjectClick.bind(this);
+    this.handleBackToSelectorClick = this.handleBackToSelectorClick.bind(this);
+    this.handleNewStoryClick = this.handleNewStoryClick.bind(this);
   }
 
   handleProjectClick(project_id) {
@@ -23,16 +25,42 @@ class ProjectStoryBuilder extends Component {
     }    
   }
 
+  handleBackToSelectorClick(project_id) {
+    this.setState({"selected_project": null});
+  }
+
+  handleNewStoryClick(project_id) {
+    // TODO: find new ID from DB when connected
+    let new_project =  {
+          "id": Math.floor( (Math.random()*1000) + 1 ),
+          "metadata": {
+            "project_name": "New Project",
+            "assignee": "",
+            "project_manager": "",
+            "features": []
+          },
+          "user_stories": []
+        };
+
+    console.log(new_project);
+
+    this.props.projects.push( new_project );
+
+    this.setState({"selected_project": new_project});
+  }
+
   render() {
     let output = null;
 
     if(this.state.selected_project) {
+      let selected_project = this.state.selected_project;
+
       output = (
-        <ProjectEditor project={this.state.selected_project} />
+        <ProjectEditor project={selected_project} handleBackToSelectorClick={this.handleBackToSelectorClick} />
       );
     } else {
       output = (
-        <ProjectSelector projects={this.props.projects} handleProjectClick={this.handleProjectClick} />
+        <ProjectSelector projects={this.props.projects} handleProjectClick={this.handleProjectClick} handleNewStoryClick={this.handleNewStoryClick} />
       );
     }
 

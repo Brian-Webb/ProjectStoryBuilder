@@ -15,7 +15,7 @@ class UserStoryList extends Component {
   
   render() {
     var stories = [];
-
+    
     this.props.user_stories.forEach( function(story) {
       stories.push( <UserStoryRow story={story} key={story.id} handleStoryFieldChange={this.handleStoryFieldChange} /> );
     }, this);
