@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Button}             from 'react-materialize'
+import {Row, Col, Button}             from 'react-materialize'
 
 class ActionBar extends Component {
   constructor(props) {
@@ -20,9 +20,13 @@ class ActionBar extends Component {
 
     return (
       <div className="ActionBar">
-        {add_button}
-        <Button className="light" onClick={this.handleOutputJsonClick}>Output JSON</Button>
-        <Button className="light" onClick={this.handleBackToSelectorClick}>Back</Button>
+        <Row>
+          <Col s={12}>
+            {add_button}
+            <Button className="light" onClick={this.handleOutputJsonClick}>Output JSON</Button>
+            <Button className="light" onClick={this.handleBackToSelectorClick}>Back</Button>
+          </Col>
+        </Row>
       </div>
     );
   }

@@ -16,7 +16,7 @@ class FeatureList extends Component {
 
     return (
       <div className="FeatureList">
-        <strong>Features</strong>
+        <span className="FeaturesList--header">Features</span>
         {features}
       </div>
     )
@@ -42,8 +42,7 @@ class FeatureRow extends Component {
 
     return (
       <Row className="FeatureRow" data-issue-row={id}>
-        <Input type="text" s={2} defaultValue={id}   name="id"   onChange={this.handleMetadataFeatureChange} label="Feature #" />
-        <Input type="text" s={10} defaultValue={name} name="name" onChange={this.handleMetadataFeatureChange} label="Name" />
+        <Input type="text" s={10} defaultValue={name} name="name" onChange={this.handleMetadataFeatureChange} label="Feature Name" />
       </Row>
     )
   }
