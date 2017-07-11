@@ -49,6 +49,8 @@ class ProjectStoryBuilder extends Component {
     }
 
     handleBackToSelectorClick(project_id) {
+      console.log( this.props.projects );
+      
       this.setState({"selected_project": null});
     }
 

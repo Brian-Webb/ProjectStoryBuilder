@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import {Row, Input} 		    from 'react-materialize'
+import {Row, Input} 		    from 'react-materialize';
+import { Debounce }         from 'react-throttle';
 
 class FeatureList extends Component {
   constructor(props) {
@@ -42,7 +43,9 @@ class FeatureRow extends Component {
 
     return (
       <Row className="FeatureRow" data-issue-row={id}>
-        <Input type="text" s={10} defaultValue={name} name="name" onChange={this.handleMetadataFeatureChange} label="Feature Name" />
+        <Debounce time="400" handler="onChange">
+          <Input type="text" s={10} defaultValue={name} name="name" onChange={this.handleMetadataFeatureChange} label="Feature Name" />
+        </Debounce>
       </Row>
     )
   }

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import {Row, Col, Input} 		from 'react-materialize'
+import {Row, Col, Input} 		from 'react-materialize';
+import { Debounce }         from 'react-throttle';
 import FeatureList          from './FeatureList';
 
 class ProjectMetadata extends Component {
@@ -25,9 +26,15 @@ class ProjectMetadata extends Component {
     return (
 	    <div className="ProjectMetadata">
 	      <Row>
-	        <Input type="text" s={4} defaultValue={project_name} 	  onChange={this.handleMetadataFieldChange} name="project_name" 	 label="Project Name" />
-	        <Input type="text" s={4} defaultValue={assignee} 		    onChange={this.handleMetadataFieldChange} name="asignee" 				 label="Assignee" />
-	        <Input type="text" s={4} defaultValue={project_manager} onChange={this.handleMetadataFieldChange} name="project_manager" label="Project Manager" />
+          <Debounce time="400" handler="onChange">
+            <Input type="text" s={4} defaultValue={project_name} onChange={this.handleMetadataFieldChange} name="project_name" 	 label="Project Name" />
+          </Debounce>
+          <Debounce time="400" handler="onChange">
+            <Input type="text" s={4} defaultValue={assignee} 		    onChange={this.handleMetadataFieldChange} name="asignee" 				 label="Assignee" />
+          </Debounce>
+          <Debounce time="400" handler="onChange">
+            <Input type="text" s={4} defaultValue={project_manager} onChange={this.handleMetadataFieldChange} name="project_manager" label="Project Manager" />
+          </Debounce>
 	      </Row>
 
 	      <Row>

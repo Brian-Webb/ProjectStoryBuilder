@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import {Row, Input} 				from 'react-materialize'
+import {Row, Input} 				from 'react-materialize';
+import { Debounce } 				from 'react-throttle';
 
 class UserStoryList extends Component {
   constructor(props) {
@@ -72,25 +73,39 @@ class UserStoryRow extends Component {
 
     return (
       <Row className="UserStoryRow" data-issue-row={id}>
-        <Input type="text"     s={1}  defaultValue={id}                  name="id"                  onChange={this.handleStoryFieldChange} label="Story #" />
-        <Input type="select"   s={2}  defaultValue={feature}             name="feature"             onChange={this.handleStoryFieldChange} label="Feature">
-        	{features}
-        </Input>
-        <Input type="text"     s={1}  defaultValue={as_a}                name="as_a"                onChange={this.handleStoryFieldChange} label="As a(n)" />
-        <Input type="textarea" s={3}  defaultValue={i_can}               name="i_can"               onChange={this.handleStoryFieldChange} label="I can" />
-        <Input type="textarea" s={2}  defaultValue={so_that}             name="so_that"             onChange={this.handleStoryFieldChange} label="So That" />
-        <Input type="textarea" s={2}  defaultValue={acceptance_criteria} name="acceptance_criteria" onChange={this.handleStoryFieldChange} label="Acceptance Criteria" />
-        <Input type="select"   s={1}  defaultValue={story_points}        name="story_points"        onChange={this.handleStoryFieldChange} label="Story Points" >
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-          <option value="6">6</option>
-          <option value="7">7</option>
-          <option value="8">8</option>
-          <option value="9">9</option>
-        </Input>
+          <Debounce time="400" handler="onChange">
+        		<Input type="text"     s={1}  defaultValue={id}                  name="id"                  onChange={this.handleStoryFieldChange} label="Story #" />
+          </Debounce>
+          <Debounce time="400" handler="onChange">
+		        <Input type="select"   s={2}  defaultValue={feature}             name="feature"             onChange={this.handleStoryFieldChange} label="Feature">
+		        	{features}
+		        </Input>
+          </Debounce>
+          <Debounce time="400" handler="onChange">
+        		<Input type="text"     s={1}  defaultValue={as_a}                name="as_a"                onChange={this.handleStoryFieldChange} label="As a(n)" />
+          </Debounce>
+          <Debounce time="400" handler="onChange">
+        		<Input type="textarea" s={3}  defaultValue={i_can}               name="i_can"               onChange={this.handleStoryFieldChange} label="I can" />
+          </Debounce>
+          <Debounce time="400" handler="onChange">
+        		<Input type="textarea" s={2}  defaultValue={so_that}             name="so_that"             onChange={this.handleStoryFieldChange} label="So That" />
+          </Debounce>
+          <Debounce time="400" handler="onChange">
+        		<Input type="textarea" s={2}  defaultValue={acceptance_criteria} name="acceptance_criteria" onChange={this.handleStoryFieldChange} label="Acceptance Criteria" />
+          </Debounce>
+          <Debounce time="400" handler="onChange">
+		        <Input type="select"   s={1}  defaultValue={story_points}        name="story_points"        onChange={this.handleStoryFieldChange} label="Story Points" >
+		          <option value="1">1</option>
+		          <option value="2">2</option>
+		          <option value="3">3</option>
+		          <option value="4">4</option>
+		          <option value="5">5</option>
+		          <option value="6">6</option>
+		          <option value="7">7</option>
+		          <option value="8">8</option>
+		          <option value="9">9</option>
+		        </Input>
+          </Debounce>
       </Row>
     )
   }

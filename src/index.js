@@ -15,10 +15,12 @@ var project1_json = {
     "project_name": "Test Project",
     "assignee": "Sushil",
     "project_manager": "John",
+    "created_at": "2017-05-06",
+    "updated_at": "2017-07-06",
     "features": [
     	{
     		"id": 1,
-    		"name": "Login"
+    		"name": "Create Account"
     	},
     	{
     		"id": 2,
@@ -72,6 +74,8 @@ var project2_json = {
     "project_name": "Test Project 2",
     "assignee": "Pramod",
     "project_manager": "John",
+    "created_at": "2017-03-06",
+    "updated_at": "2017-04-06",
     "features": [
     	{
     		"id": 1,
