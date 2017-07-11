@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Tabs, Tab}          from 'react-materialize'
+import {Tabs, Tab}          from 'react-materialize';
 import ProjectMetadata      from './ProjectMetadata';
 import UserStoryList        from './UserStoryList';
 import ActionBar            from './ActionBar';
