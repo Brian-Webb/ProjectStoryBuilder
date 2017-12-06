@@ -40,14 +40,16 @@ class ProjectEditor extends Component {
     if(this.state.user_stories) {
       user_stories = this.state.user_stories;
     }
-
+    let metadataActive = this.state.current_tab === 'project_metadata' ? true : false;
+    let userStoriesActive = this.state.current_tab === 'user_stories' ? true : false;
+    
     return (
       <div className="ProjectEditor">
-        <Tabs className='tab-demo z-depth-1' onChange={this.handleTabChange}>
-            <Tab title="Project Information" active>
+        <Tabs className='tab-demo z-depth-1' onChange={(idx,e) => {this.handleTabChange(e)}}>
+            <Tab title="Project Information"  active={metadataActive}>
               <ProjectMetadata metadata={metadata} handleMetadataFieldChange={this.handleMetadataFieldChange} handleMetadataFeatureChange={this.handleMetadataFeatureChange} />
             </Tab>
-            <Tab title="User Stories">
+            <Tab title="User Stories" active={userStoriesActive}>
               <UserStoryList user_stories={user_stories} features={metadata.features} handleStoryFieldChange={this.handleStoryFieldChange} />
             </Tab>
         </Tabs>
@@ -149,9 +151,12 @@ class ProjectEditor extends Component {
     }
 
   // tab functions
-    handleTabChange(e) {
-      var current_tab = 'user_stories'; 
-      if( e === 0 ) {
+    handleTabChange(e, idx, test) {
+      let current_tab = 'user_stories'; 
+
+      const buttonText = e.nativeEvent.srcElement.innerHTML;
+
+      if( buttonText === 'Project Information') {
         current_tab = 'project_metadata';
       }
 
