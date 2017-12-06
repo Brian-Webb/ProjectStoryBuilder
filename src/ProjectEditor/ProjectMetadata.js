@@ -27,10 +27,10 @@ class ProjectMetadata extends Component {
 	    <div className="ProjectMetadata">
 	      <Row>
           <Debounce time="400" handler="onChange">
-            <Input type="text" s={4} defaultValue={project_name} onChange={this.handleMetadataFieldChange} name="project_name" 	 label="Project Name" />
+            <Input type="text" s={4} defaultValue={project_name} onChange={this.handleMetadataFieldChange} name="project_name" label="Project Name" />
           </Debounce>
           <Debounce time="400" handler="onChange">
-            <Input type="text" s={4} defaultValue={assignee} 		    onChange={this.handleMetadataFieldChange} name="asignee" 				 label="Assignee" />
+            <Input type="text" s={4} defaultValue={assignee} onChange={this.handleMetadataFieldChange} name="asignee" label="Assignee" />
           </Debounce>
           <Debounce time="400" handler="onChange">
             <Input type="text" s={4} defaultValue={project_manager} onChange={this.handleMetadataFieldChange} name="project_manager" label="Project Manager" />
